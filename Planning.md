@@ -6,26 +6,22 @@
 
 ### Reading:
 
-1. What is an API? (link tbd)
+1. [What is an API?](https://www.geeksforgeeks.org/what-is-an-api/)
 
-2. Basic Functions of an API (link tbd)
+2. [API Keys and Environment Variables](https://www.netlify.com/blog/a-guide-to-storing-api-keys-securely-with-environment-variables/)
 
-3. REST vs SOAP (link tbd)
-
-4. API Keys and Environment Variables (link tbd)
-
-5. [Introduction to JavaScript](https://www.geeksforgeeks.org/introduction-to-javascript/?ref=lbp)
+3. [Introduction to JavaScript](https://www.geeksforgeeks.org/introduction-to-javascript/?ref=lbp)
 
 ### Assignments:
 
-1. Discussion Post: Consider three situations in which gathering API could be used in your daily life. Consider one additional situation in which multiple APIs could be used in conjunction with one another to serve one end.
+1. Discussion Post: Consider three situations in which gathering information using an API could be used in your daily life. Consider a fourth situation in which two or more APIs could be used in conjunction with one another to serve one end.
 
-2. Complete the GitHub tutorial at: [https://guides.github.com/activities/hello-world/](https://guides.github.com/activities/hello-world/%20). Create a new repository for the server we created in this unit and submit a link to your public GitHub repository.
+2. Complete the GitHub tutorial at: [https://guides.github.com/activities/hello-world/](https://guides.github.com/activities/hello-world/%20).
 
 3. Create a "Hello World" program using JavaScript and upload it to your newly created repository.
 
-## Unit II - MongoDB Setup and Intro to MERN
 
+## Unit II - MongoDB Setup and Intro to MERN
 
 ### Reading:
 
