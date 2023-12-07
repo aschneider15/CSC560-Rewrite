@@ -39,4 +39,4 @@
 
 ### Reading:
 
-1. This is a really good resource: [https://youtu.be/9OfL9H6AmhQ](https://youtu.be/9OfL9H6AmhQ)
+1. Complete this tutorial: https://github.com/aschneider15/CSC560-Rewrite/blob/master/Node%20API/Creating%20API.md
