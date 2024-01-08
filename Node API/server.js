@@ -1,8 +1,12 @@
 const express = require('express')
+const cors = require('cors')
 const playerRoutes = require('./routes/players')
 const mongoose = require('mongoose')
 const app = express()
 const port = 3000
+
+// enable cross-origin resource sharing through CORS middleware
+app.use(cors())
 
 // request log middleware
 app.use(express.json())
