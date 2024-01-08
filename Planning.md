@@ -42,9 +42,13 @@
 
 1. Complete this tutorial: https://github.com/aschneider15/CSC560-Rewrite/blob/master/Node%20API/Creating%20API.md
 
-### Assignments
+### Assignments:
 
 1. Create a GitHub repository that contains the code that you wrote for the tutorial listed above. Submit a link to the repository along with screenshots of one GET, one POST, one PATCH, and one DELETE request to your API using the Postman application.
 
 
 ## Unit 4 - Creating a Frontend
+
+### Reading:
+
+### Assignments
