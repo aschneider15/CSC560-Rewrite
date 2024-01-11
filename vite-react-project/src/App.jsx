@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PlayerTable from './components/PlayerTable'
+import AddPlayerMenu from './components/AddPlayerMenu'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,8 +23,8 @@ function App() {
       <PlayerTable></PlayerTable>
 
       <div className="card">
-        <button>Hello</button>
-        <button>World</button>
+        <AddPlayerMenu></AddPlayerMenu>
+        
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

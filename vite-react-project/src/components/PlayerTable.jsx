@@ -1,6 +1,6 @@
 // From ChatGPT
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const PlayerTable = () => {
   const [data, setData] = useState([]);
@@ -8,11 +8,11 @@ const PlayerTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/players/');
-        console.log('API Response:', response);
+        const response = await axios.get("http://localhost:3000/api/players/");
+        console.log("API Response:", response);
         setData(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
 
