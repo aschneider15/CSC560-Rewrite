@@ -17,7 +17,7 @@ const PlayerTable = () => {
     };
 
     fetchData();
-  }, []); // empty dependency array to fetch data only once when the component mounts
+  }, [  ]); // empty dependency array to fetch data only once when the component mounts
 
   // Render your table here using the 'data' state
   return (
