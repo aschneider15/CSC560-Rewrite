@@ -1,8 +1,6 @@
-
 # CSC560 Rewrite
 
-
-## Unit I - Sharing and Storing Information (This should take one week)
+## Unit I - Sharing and Storing Information (1wk)
 
 ### Reading:
 
@@ -20,8 +18,7 @@
 
 3. Create a "Hello World" program using JavaScript and upload it to your newly created repository. [This is a good place to start if you need some help](https://www.programiz.com/javascript/examples/hello-world).
 
-
-## Unit II - MongoDB Setup and Intro to MERN (This should take one week)
+## Unit II - MongoDB Setup and Intro to MERN (1wk)
 
 ### Reading:
 
@@ -29,14 +26,13 @@
 
 2. [Get Started With MongoDB | MongoDB](https://www.mongodb.com/basics/get-started)
 
-### Assignments: 
+### Assignments:
 
 1. Follow the install tutorial for MongoDB (linked above).
 
 2. Create a MongoDB collection representing a team of players for a sport. This could be made up data or data based on a real team for a sport of your choosing--a Cricket team for instance. Once you have created your collection, create and demonstrate 5 queries that would be appropriate for your collection.
 
-
-## Unit 3 - Creating an API (This should take two weeks)
+## Unit 3 - Creating an API (2wk)
 
 ### Reading:
 
@@ -46,30 +42,32 @@
 
 ### Assignments:
 
-1. Install the Postman desktop application [found here](https://www.postman.com/downloads/). Please note that Mac or Linux users' install links are smaller and slightly below the Windows install link. Follow the tutorial from reading 1 above, and submit a screenshot of one successful GET request and one successful POST request. Additionally, create one GET request to the [PokéAPI](https://pokeapi.co/api/v2/pokemon/), a Pokémon themed API. Append this given link with either the name or index number of a Pokémon (if you don't know much about Pokémon, just enter any number under 1025) and submit a screenshot of the resulting JSON. 
+1. Install the Postman desktop application [found here](https://www.postman.com/downloads/). Please note that Mac or Linux users' install links are smaller and slightly below the Windows install link. Follow the tutorial from reading 1 above, and submit a screenshot of one successful GET request and one successful POST request. Additionally, create one GET request to the [PokéAPI](https://pokeapi.co/api/v2/pokemon/), a Pokémon themed API. Append this given link with either the name or index number of a Pokémon (if you don't know much about Pokémon, just enter any number under 1025) and submit a screenshot of the resulting JSON.
 
 2. Follow the tutorial from reading 2 above. Create a GitHub repository that contains the code that you wrote for the tutorial. Submit a link to the repository along with screenshots of one GET, one POST, one PATCH, and one DELETE request to the API you created using the Postman application.
 
-
-## Unit 4 - Creating a Frontend (This should take two weeks)
+## Unit 4 - Creating a Frontend (2wk)
 
 ### Reading:
 
 1. [React + Vite installation](https://vitejs.dev/guide/)
+
 2. [React quick start guide](https://react.dev/learn)
 
 ### Assignments
 
-(Still working this one out)
+1. Following the guide linked above, create a simple front-end application using Node and React + Vite. The application should make a call to this public API: [https://bible-api.com](https://bible-api.com), and request for a random verse from the Bible every time that a button is clicked. This application should look appealing, but still simple: don't overdo it with CSS or styling, just make sure it is functional.
 
-## Unit 5 - Final Project (This should take two weeks)
+2. Begin working on your final project: create a full-stack MERN-based application that integrates all of the previous assignments into one cumulative project. The entire project should be contained within a GitHub repository, and should be well-documented. Make sure to create mindful comments throughout your code (explaining WHY you wrote things, not WHAT they do) so that you can come back to this later in your career and be able to understand and explain your project.
+
+## Unit 5 - Final Project & Exam (2wk)
 
 ### Reading:
 
-N/A
+1. Suggestions (To be written. As a student myself, I'm hoping to provide some useful perspective on how to best complete this final project.)
 
 ### Assignments:
 
-1. This will be your final project: create a full-stack MERN-based application that integrates all of the previous assignments into one cumulative project. The entire project should be contained within a GitHub repository, and should be well-documented. Make sure to create mindful comments throughout your code (explaining WHY you wrote things, not WHAT they do) so that you can come back to this later in your career and be able to understand and explain your project.
+1. Final Project is due at the end of week seven.
 
 2. Final Exam. Consists of ten short-answer questions based on content covered in this course.
