@@ -80,22 +80,18 @@ In our newly created components folder, let's create a file called `SubmitBox.js
 Here's some basic code to start out with:
 
 ```jsx
-function SubmitBox() {
+function SubmitBox(props) {
   return (
     <>
-      <div>
-        <input type="text"></input>
-        <input type="submit"></input>
-        <p>
-          <i>Enter some text into the box and press the submit button.</i>
-        </p>
-      </div>
+      {props.label}:<input type={props.type} name={props.name}></input>
     </>
   );
 }
 
 export default SubmitBox;
 ```
+
+The "props" parameter that we pass into the function will handle all of the properties that we give the component upon its creation.
 
 When including this component in the `App.jsx` file, make sure to import the SubmitBox component file. This will make it so that you can use the SubmitBox component like a traditional HTML tag. If we want to reference a component we have created within the App.jsx file, we do that very simply using HTML-like structure. This is what the whole file should look like:
 
@@ -106,7 +102,22 @@ import SubmitBox from "./components/SubmitBox";
 function App() {
   return (
     <>
-      <SubmitBox />
+      <h1>Placeholder Text</h1>
+      <div>
+        <SubmitBox label="Book" name="book" type="string" />
+      </div>
+      <div>
+        <SubmitBox label="Chapter" name="chapter" type="number" />
+      </div>
+      <div>
+        <SubmitBox label="Verse" name="verse" type="number" />
+      </div>
+      <p>
+        Enter a book of the Bible, a chapter number and a verse number, then
+        press "Submit" <i>(ex: "John 3 16")</i>.
+      </p>
+      <p>Or press the "Random" button to generate a random verse.</p>
+      <input type="submit" name="rand" value="Random"></input>
     </>
   );
 }
@@ -114,4 +125,12 @@ function App() {
 export default App;
 ```
 
-Now we have a complete react component. 
+Now we have a complete react component. It doesn't do anything functional, so our next step will be giving it the ability to do something.
+
+## Making Calls to APIs
+
+In order for us to be able to make an API call, we first need to understand a fundamental concept of React programming called hooks. Hooks allow us to keep track of our react app's state, among other features. It is state that allows us to update components without refreshing the page. For more information on React hooks, here's a link to the [W3Schools page](https://www.w3schools.com/react/react_hooks.asp). The particular hook required to call an API is called [useEffect](https://www.w3schools.com/react/react_useeffect.asp).
+
+### The useEffect Hook
+
+The useEffect hook is a particularly useful one, allowing us to perform side effcets within our components, including <i>fetching data<i>.

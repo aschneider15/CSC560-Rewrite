@@ -65,6 +65,7 @@
 ### Reading:
 
 1. Suggestions (To be written. As a student myself, I'm hoping to provide some useful perspective on how to best complete this final project.)
+    * In the API tutorial, make sure they include AXIOS in their node packages
 
 ### Assignments:
 
