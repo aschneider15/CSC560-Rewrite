@@ -112,12 +112,13 @@ function App() {
       <div>
         <SubmitBox label="Verse" name="verse" type="number" />
       </div>
+      <input type="submit" name="submit" />
       <p>
         Enter a book of the Bible, a chapter number and a verse number, then
         press "Submit" <i>(ex: "John 3 16")</i>.
       </p>
       <p>Or press the "Random" button to generate a random verse.</p>
-      <input type="submit" name="rand" value="Random"></input>
+      <input type="submit" name="rand" value="Random" />
     </>
   );
 }
@@ -131,6 +132,42 @@ Now we have a complete react component. It doesn't do anything functional, so ou
 
 In order for us to be able to make an API call, we first need to understand a fundamental concept of React programming called hooks. Hooks allow us to keep track of our react app's state, among other features. It is state that allows us to update components without refreshing the page. For more information on React hooks, here's a link to the [W3Schools page](https://www.w3schools.com/react/react_hooks.asp). The particular hook required to call an API is called [useEffect](https://www.w3schools.com/react/react_useeffect.asp).
 
+### The useState Hook
+
+The useState hook will allow us keep track of a component's state and update the React application if it changes. This will make it so that we don't have to refresh the page every time something gets updated. You have to import useState into your .jsx files from react in order to use it. useState works like this: you have a variable which references the current state of an object, and you have a function that is called to update that state.
+
+```jsx
+const [name, setName] = useState("John");
+```
+
+In this example, the current state is held in the "name" variable, the "setName" variable can be called later to update the state, and the default state of name is "John".
+
 ### The useEffect Hook
 
-The useEffect hook is a particularly useful one, allowing us to perform side effcets within our components, including <i>fetching data<i>.
+The useEffect hook is a particularly useful one, allowing us to perform side effcets within our components, including <i>fetching data</i>. Just like useState, you have to import useEffect from react. The useEffect hook takes in two parameters: the first is a function (in the case of an API call, this would be "fetch"), and the second is a array of dependencies. This dependency array <u>is optional</u>, and it essentially prevents the useEffect hook from updating the React app unless any of the dependencies within the array update.
+
+There are a couple of ways to take advantage of this dependency array parameter, but here are a few of the most useful ones:
+
+- You can make it so that the useEffect hook only triggers once at the initial rendering of the page by passing an empty array: `[]`
+- You can make it so that the useEffect hook triggers on every render by passing <u>only</u> a function (without passing any kind of array) as a second parameter
+
+A typical API call using a useEffect hook will look like this:
+
+```jsx
+function callAPI() {
+  fetch('https://address-of-API') {
+    /* parse the JSON of the response */
+    .then(response => response.json());
+    /* call a useState effect to update a components state */
+    .then(data => setFunction(data.message));
+    /* handle errors */
+    .catch(error => console.error(error));
+  }
+}
+
+useEffect(callAPI)
+```
+
+### Implementation of Hooks
+
+Having learned exactly what hooks are and how they work, let's implement some in our App.jsx file. As stated earlier, the hooks need to be included from "react".
