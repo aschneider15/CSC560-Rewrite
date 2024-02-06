@@ -25,10 +25,11 @@ In your terminal, change directory to your project root and use the following co
 
 ```
 npm install
+npm i axios
 npm run dev
 ```
 
-This will install the dependencies required for Vite and React, and then deploy your project locally on your machine. Your terminal should give you a link that you can visit in your web browser to see the project for yourself. What you see should be the Vite logo, the React logo, and a button that counts up every time you click it. If you look at the src/assets folder, you can take a look at the code that makes this work. If you want to close the application running on your local machine, input CTRL + C in the terminal, and then confirm by entering "Y".
+This will install the dependencies required for Vite and React, and then deploy your project locally on your machine. We will explain axios a little bit later. Your terminal should give you a link that you can visit in your web browser to see the project for yourself. What you see should be the Vite logo, the React logo, and a button that counts up every time you click it. If you look at the src/assets folder, you can take a look at the code that makes this work. If you want to close the application running on your local machine, input CTRL + C in the terminal, and then confirm by entering "Y".
 
 ## File Structure
 
@@ -58,7 +59,9 @@ import "./App.css";
 
 function App() {
   return;
-  <></>;
+  <>
+    <h1>Bible Verse Generator</h1>
+  </>;
 }
 
 export default App;
@@ -72,54 +75,41 @@ As you can see from the code we just pasted, it's pretty bare. The top line impo
 
 For an extensive list of all of the HTML tags you can use, here's a comprehensive reference from [W3Schools](https://www.w3schools.com/tags/default.asp).
 
-Normally when developing a React project, it's best practice to create a folder called "components" within your src folder. All of the components you create should be named using Camel Case staring with a capital letter (e.g. "MyNewComponent").
+It is best practice to have only the bare essentials within the App.jsx file, having your user-created components do most of the heavy lifting. Normally when developing a React project, it's best practice to create a folder called "components" within your src folder. All of the components you create should be named using Camel Case staring with a capital letter (e.g. "MyNewComponent").
 
-### Creating a New Component - Submit Box
+### Creating a New Component - Random Button
 
-In our newly created components folder, let's create a file called `SubmitBox.jsx`. This will serve as our tutorial for how to create nearly any component in JSX. \
+In our newly created components folder, let's create a file called `RandomButton.jsx`. This will serve as our tutorial for how to create nearly any component in JSX. \
 Here's some basic code to start out with:
 
 ```jsx
-function SubmitBox(props) {
+function RandomButton() {
   return (
     <>
-      {props.label}:<input type={props.type} name={props.name}></input>
+      <h2>{displayText}</h2>
+      <p>Press the "Random" button to generate a random verse.</p>
+      <form onSubmit={(event) => callAPIRandom(event)}>
+        <input type="submit" name="rand" value="Random" />
+      </form>
     </>
   );
 }
 
-export default SubmitBox;
+export default RandomButton;
 ```
 
-The "props" parameter that we pass into the function will handle all of the properties that we give the component upon its creation.
-
-When including this component in the `App.jsx` file, make sure to import the SubmitBox component file. This will make it so that you can use the SubmitBox component like a traditional HTML tag. If we want to reference a component we have created within the App.jsx file, we do that very simply using HTML-like structure. This is what the whole file should look like:
+When including this component in the `App.jsx` file, make sure to import the RandomButton component file. This will make it so that you can use the RandomButton component like a traditional HTML tag. If we want to reference a component we have created within the App.jsx file, we do that very simply using HTML-like structure. This is what the whole file should look like:
 
 ```jsx
 import "./App.css";
-import SubmitBox from "./components/SubmitBox";
+import RandomButton from "./components/RandomButton";
 
 function App() {
   return (
     <>
-      <h1>Placeholder Text</h1>
-      <div>
-        <SubmitBox label="Book" name="book" type="string" />
-      </div>
-      <div>
-        <SubmitBox label="Chapter" name="chapter" type="number" />
-      </div>
-      <div>
-        <SubmitBox label="Verse" name="verse" type="number" />
-      </div>
-      <input type="submit" name="submit" />
-      <p>
-        Enter a book of the Bible, a chapter number and a verse number, then
-        press "Submit" <i>(ex: "John 3 16")</i>.
-      </p>
-      <p>Or press the "Random" button to generate a random verse.</p>
-      <input type="submit" name="rand" value="Random" />
-    </>
+      <h1>Bible Verse Generator</h1>
+      <RandomButton/>
+    </>;
   );
 }
 
@@ -130,7 +120,11 @@ Now we have a complete react component. It doesn't do anything functional, so ou
 
 ## Making Calls to APIs
 
-In order for us to be able to make an API call, we first need to understand a fundamental concept of React programming called hooks. Hooks allow us to keep track of our react app's state, among other features. It is state that allows us to update components without refreshing the page. For more information on React hooks, here's a link to the [W3Schools page](https://www.w3schools.com/react/react_hooks.asp). The particular hook required to call an API is called [useEffect](https://www.w3schools.com/react/react_useeffect.asp).
+In order for us to be able to make an API call, we first need to understand a couple fundamental concepts of React programming: hooks and the axios library. 
+
+Hooks allow us to keep track of our react app's state, among other features. It is state that allows us to update components without refreshing the page. For more information on React hooks, here's a link to the [W3Schools page](https://www.w3schools.com/react/react_hooks.asp).
+
+[Axios](https://www.geeksforgeeks.org/axios-in-react-a-guide-for-beginners/) is a library we imported earlier during the creation of our React application. It allows us to easily interact with APIs using a syntax similar to traditional API phrasing. There are functions that support "get," "post," etc.
 
 ### The useState Hook
 
@@ -142,32 +136,40 @@ const [name, setName] = useState("John");
 
 In this example, the current state is held in the "name" variable, the "setName" variable can be called later to update the state, and the default state of name is "John".
 
-### The useEffect Hook
-
-The useEffect hook is a particularly useful one, allowing us to perform side effcets within our components, including <i>fetching data</i>. Just like useState, you have to import useEffect from react. The useEffect hook takes in two parameters: the first is a function (in the case of an API call, this would be "fetch"), and the second is a array of dependencies. This dependency array <u>is optional</u>, and it essentially prevents the useEffect hook from updating the React app unless any of the dependencies within the array update.
-
-There are a couple of ways to take advantage of this dependency array parameter, but here are a few of the most useful ones:
-
-- You can make it so that the useEffect hook only triggers once at the initial rendering of the page by passing an empty array: `[]`
-- You can make it so that the useEffect hook triggers on every render by passing <u>only</u> a function (without passing any kind of array) as a second parameter
-
-A typical API call using a useEffect hook will look like this:
-
-```jsx
-function callAPI() {
-  fetch('https://address-of-API') {
-    /* parse the JSON of the response */
-    .then(response => response.json());
-    /* call a useState effect to update a components state */
-    .then(data => setFunction(data.message));
-    /* handle errors */
-    .catch(error => console.error(error));
-  }
-}
-
-useEffect(callAPI)
-```
+<!-- Left off here (Feb 6, 2024 - 9:06 AM) -->
 
 ### Implementation of Hooks
 
-Having learned exactly what hooks are and how they work, let's implement some in our App.jsx file. As stated earlier, the hooks need to be included from "react".
+Having learned exactly what hooks are and how they work, let's implement some in our App.jsx file. As stated earlier, the hooks need to be included from "react," so we need to include them near the top of our file like this:
+
+```jsx
+import { useState, useEffect } from "react";
+```
+
+We want to be able to display the text that we acquire by calling the API, so we can store that in our h1 header that currently says "Placeholder Text." Before the "App" function begins, we need to create a useState hook, which we can write like this:
+
+```jsx
+const [displayText, setDisplayText] = useState("Placeholder Text");
+```
+
+And then later, we can reference this in our h1 tag by writing something like this:
+
+```html
+<h1>{ displayText }</h1>
+```
+
+We can write up a quick function to call the API (we'll start with the random verse call since it will likely be easier to implement), followed up by a useEffect which will cause the function to be called every time we request a new verse.
+
+```jsx
+function callAPIRandom() {
+  fetch('https://bible-api.com/?random=verse') {
+    .then(response => response.json);
+    .then(data => setfunction(data.message));
+    .catch(error => console.error(error));
+  }
+
+  displayText = data;
+}
+
+
+```
