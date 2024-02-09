@@ -120,11 +120,11 @@ Now we have a complete react component. It doesn't do anything functional, so ou
 
 ## Making Calls to APIs
 
-In order for us to be able to make an API call, we first need to understand a couple fundamental concepts of React programming: hooks and the axios library. 
+In order for us to be able to make an API call, we first need to understand a couple of fundamental concepts of React programming: hooks and the axios library.
 
 Hooks allow us to keep track of our react app's state, among other features. It is state that allows us to update components without refreshing the page. For more information on React hooks, here's a link to the [W3Schools page](https://www.w3schools.com/react/react_hooks.asp).
 
-[Axios](https://www.geeksforgeeks.org/axios-in-react-a-guide-for-beginners/) is a library we imported earlier during the creation of our React application. It allows us to easily interact with APIs using a syntax similar to traditional API phrasing. There are functions that support "get," "post," etc.
+[Axios](https://www.geeksforgeeks.org/axios-in-react-a-guide-for-beginners/) is a library we included earlier during the creation of our React application. It allows us to easily interact with APIs using a syntax similar to traditional API phrasing. There are functions that support "get," "post," etc.
 
 ### The useState Hook
 
@@ -136,40 +136,94 @@ const [name, setName] = useState("John");
 
 In this example, the current state is held in the "name" variable, the "setName" variable can be called later to update the state, and the default state of name is "John".
 
-<!-- Left off here (Feb 6, 2024 - 9:06 AM) -->
-
 ### Implementation of Hooks
 
-Having learned exactly what hooks are and how they work, let's implement some in our App.jsx file. As stated earlier, the hooks need to be included from "react," so we need to include them near the top of our file like this:
-
-```jsx
-import { useState, useEffect } from "react";
-```
-
-We want to be able to display the text that we acquire by calling the API, so we can store that in our h1 header that currently says "Placeholder Text." Before the "App" function begins, we need to create a useState hook, which we can write like this:
+Having learned exactly what useState hooks are and how they work, let's implement one in our RandomButton.jsx file. We want to be able to display the text that we acquire by calling the API, so we can store that in our h2 header that currently says "Placeholder Text." Before the return begins, we need to create a useState hook, which we can write like this:
 
 ```jsx
 const [displayText, setDisplayText] = useState("Placeholder Text");
 ```
 
-And then later, we can reference this in our h1 tag by writing something like this:
+And then later, we can reference this in our h2 header by writing something like this:
 
 ```html
-<h1>{ displayText }</h1>
+<h2>{ displayText }</h2>
 ```
 
-We can write up a quick function to call the API (we'll start with the random verse call since it will likely be easier to implement), followed up by a useEffect which will cause the function to be called every time we request a new verse.
+We can write up a quick function to call the API. We'll start with the random verse call since it will likely be easier to implement.
 
 ```jsx
-function callAPIRandom() {
-  fetch('https://bible-api.com/?random=verse') {
-    .then(response => response.json);
-    .then(data => setfunction(data.message));
-    .catch(error => console.error(error));
+const callAPIRandom = async (event) => {
+  /* Prevent default form submission behavior */
+  event.preventDefault();
+  /* Attempt to make a GET request */
+  try {
+    const response = await axios.get(
+      "http://labs.bible.org/api/?passage=random&formatting=plain"
+    );
+    /* Log the response to the console for debugging purposes*/
+    console.log("API Response:", response.data);
+    /* Set the display text to the response of the GET */
+    setDisplayText(response.data);
+    /* If there's an error, report it to the console */
+  } catch (error) {
+    console.error("Error fetching data:", error);
   }
-
-  displayText = data;
-}
-
-
+};
 ```
+
+In the end, we should have code that looks something like this:
+
+```jsx
+/* in App.jsx */
+import "./App.css";
+import RandomButton from "./components/RandomButton"
+
+function App() {
+  return (
+    <>
+      <h1>Bible Verse Generator</h1>
+      <RandomButton/>
+    </>
+  );
+};
+
+export default App;
+
+
+/* in RandomButton.jsx */
+import { useState } from "react";
+import axios from "axios";
+
+function RandomButton() {
+
+    const [displayText, setDisplayText] = useState("Placeholder Text");
+
+    const callAPIRandom = async (event) => {
+        event.preventDefault();
+        try {
+        const response = await axios.get(
+            "http://labs.bible.org/api/?passage=random&formatting=plain"
+        );
+        console.log("API Response:", response.data);
+        setDisplayText(response.data);
+        } catch (error) {
+        console.error("Error fetching data:", error);
+        }
+    };
+
+    return (
+        <>
+        <h2>{displayText}</h2>
+        <p>Press the "Random" button to generate a random verse.</p>
+        <form onSubmit={(event) => callAPIRandom(event)}>
+            <input type="submit" name="rand" value="Random" />
+        </form>
+        </>
+    );
+};
+
+export default RandomButton;
+```
+
+Your goal, now knowing what you know about React, is to create an additional component called "RetreivalButton" which works similarly to the RandomButton, except rather than calling for a random verse from the Bible, this new component should prompt users to enter a book name, and a chapter and verse number and then create a GET request to labs.bible.org using that information. Remember to follow proper conventions, use the resources you have been given, and document your code with meaningful comments. 
