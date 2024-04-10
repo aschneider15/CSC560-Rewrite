@@ -226,4 +226,4 @@ function RandomButton() {
 export default RandomButton;
 ```
 
-Your goal, now knowing what you know about React, is to create an additional component called "RetreivalButton" which works similarly to the RandomButton, except rather than calling for a random verse from the Bible, this new component should prompt users to enter a book name, and a chapter and verse number and then create a GET request to labs.bible.org using that information. Remember to follow proper conventions, use the resources you have been given, and document your code with meaningful comments. 
+Your goal, now knowing what you know about React, is to create an additional component called "RetreivalButton" which works similarly to the RandomButton, except rather than calling for a random verse from the Bible, this new component should prompt users to enter a book name, and a chapter and verse number and then create a GET request to labs.bible.org using that information. Remember to follow proper conventions, use the resources you have been given, and document your code with meaningful comments.

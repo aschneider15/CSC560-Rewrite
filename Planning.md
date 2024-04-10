@@ -54,9 +54,11 @@
 
 2. [React quick start guide](https://react.dev/learn)
 
+3. [Creating a Frontend with React + Vite](https://github.com/aschneider15/CSC560-Rewrite/blob/master/Creating%20React%20%2B%20Vite%20frontend.md)
+
 ### Assignments
 
-1. Following the guide linked above, create a simple front-end application using Node and React + Vite. The application should make a call to this public API: [https://labs.bible.org/api_web_service](https://labs.bible.org/api_web_service), and request for a random verse from the Bible every time that a button is clicked. This application should look appealing, but still simple: don't overdo it with CSS or styling, just make sure it is functional.
+1. Following the guides linked above, create a simple front-end application using Node and React + Vite. The application should make a call to this public API: [https://labs.bible.org/api_web_service](https://labs.bible.org/api_web_service), and request for a random verse from the Bible every time that a button is clicked. Make an additional component which calls the API to GET a specific verse from the Bible (eg. John 3:16). This application should look appealing, but still simple: don't overdo it with the styling, just make sure it is functional. 
 
 2. You should now begin working on your final project: create a full-stack MERN-based application that integrates all of the previous assignments into one cumulative project. The entire project should be contained within a GitHub repository, and should be well-documented. Make sure to create mindful comments throughout your code (explaining WHY you wrote things, not WHAT they do) so that you can come back to this later in your career and be able to understand and explain your project.
 
