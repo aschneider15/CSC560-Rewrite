@@ -27,7 +27,7 @@ CTRL + SHIFT + ~). Then, use the command `npm init -y` to initialize a Node.js p
 
 ### Installing the Dependencies
 
-There are several packages we want to include in our project in our project, one is required for functionality, and the others are useful tools for the development of our project. You can install a package by opening your terminal and typing `npm install [package name]` (keep in mind that package names must be all lowercase with no spaces).
+There are several packages we want to include in our project in our project: one is required for functionality, and the others are useful tools for the development of our project. You can install a package by opening your terminal and typing `npm install [package name]` (keep in mind that package names must be all lowercase with no spaces).
 
 The first package we want to install is Express: the framework mentioned earlier (package name is 'express'). Since I explained it before, we'll just move on to the next package.
 
@@ -58,7 +58,7 @@ After installing all of the packages using the npm command indicated above, your
 ```
 
 If your file doesn't look like this, then you made a mistake when attempting to install the dependencies. Remember that to install a package, the command is `npm install`and then the name
-of the package you want to install. If you want to install all of the dependencies we will use with one command, use `npm install express nodemon mongoose`.
+of the package you want to install. If you want to install all of the packages we will use with one command, use `npm install express nodemon mongoose`.
 
 ## Creating a Server
 
@@ -76,7 +76,7 @@ To include any package in your javascript file, you have to use the keyword `req
 const express = require("express");
 ```
 
-The constant variable `express` we just created gives us the ability to call any function we like from the Express package. \
+The constant `express` we just created gives us the ability to call any function we like from the Express package. \
 The first function we will need to call is the constructor, which will create an instance of an express application which we can use to route users to API endpoint. We will also need to establish a port on which we will run the server. Here's how this is done:
 
 ```javascript

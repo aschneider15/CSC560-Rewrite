@@ -1,6 +1,6 @@
 # CSC560 Rewrite
 
-## Unit I - Sharing and Storing Information (1wk)
+## Unit I - All About APIs (1wk)
 
 ### Reading:
 

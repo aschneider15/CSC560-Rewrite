@@ -1,0 +1,76 @@
+1. What does "API" stand for?
+
+- Advanced Programming Interface
+- Application Programming Interface
+- Application Package Interface
+- Application Programming Integration
+
+2. What does an API do?
+
+
+
+3. What is the difference between a public and a private API?
+
+- Public APIs can be called by anyone, but only people with permission can call a private API.
+- Public APIs are advertised on the internet, but private APIs are kept secret for personal use.
+- Public APIs can be accessed without the use of a key, but private APIs only provide services to key-holders.
+- Public APIs and private APIs are fundamentally the same.
+
+4. Which of the following concerning RESTful APIs is false?
+
+- GET is only used for retrieving data from a server.
+- POST is only used for creating data on a server.
+- DELETE is only used for removing data from a server.
+- PATCH is only used for repairing broken data on a server.
+
+5. True or false: JavaScript's traditional use is for creating website interactivity.
+
+- True
+- False
+
+6. True or false: The MERN stack is the only way fullstack development is done today.
+
+- True
+- False
+
+7. What makes JSX different from JavaScript?
+
+- It integrates HTML-like syntax into a JavaScript base.
+- It cannot be understood by web browsers, since it needs to be transpiled.
+- Both A and B.
+- JavaScript is a compiled language, while JSX is an interpreted language.
+
+8. What is a Document in MongoDB?
+
+- The individual data records of the database containing key/value pairs.
+- The file in which all of the information about the application is stored.
+- "Document" is a different term used to refer to the database.
+- A type by which records can be categorized.
+
+9. Why is creating a schema for a MongoDB database an important thing to do?
+
+- It makes integration with Node more simple.
+- It secures data integrity.
+- Both A and B.
+- Neither A nor B.
+
+10. What is middleware?
+
+- Software that sits between an operating system and the applications running on it.
+- Programming paradigms that enable multiple functions to execute concurrently.
+- A set of security protocols used to encrypt data transmitted through an API.
+- Connective software for different components, facilitating communication and data management.
+
+11. What is the concept of modularization?
+
+- The process of optimizing code for faster execution.
+- A programming paradigm focused on data encapsulation and inheritance.
+- The practice of breaking down a program into smaller, manageable, and reusable components.
+- A software architecture pattern that emphasizes the separation of concerns between different layers of an application.
+
+12. What allows pages built using React to update without refreshing the page?
+
+- The transpilation of JSX files.
+- The use of hook functions.
+- The use of browser cookies.
+- React pages cannot update without refreshing the page.
