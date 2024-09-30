@@ -83,12 +83,26 @@ In our newly created components folder, let's create a file called `RandomButton
 Here's some basic code to start out with:
 
 ```jsx
+import { useState } from 'react';
+
 function RandomButton() {
+  // Define state for displayText
+  const [displayText, setDisplayText] = useState('Random Bible Verse');
+
+  // Define the function that will handle the API call
+  const callAPIRandom = (event) => {
+    event.preventDefault();
+    
+    // Here you can fetch a random verse from an API or generate one
+    // For now, we will just update the displayText with a placeholder message.
+    setDisplayText('Genesis 1:1');
+  };
+
   return (
     <>
       <h2>{displayText}</h2>
       <p>Press the "Random" button to generate a random verse.</p>
-      <form onSubmit={(event) => callAPIRandom(event)}>
+      <form onSubmit={callAPIRandom}>
         <input type="submit" name="rand" value="Random" />
       </form>
     </>
